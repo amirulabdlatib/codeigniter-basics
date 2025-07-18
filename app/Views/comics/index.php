@@ -15,14 +15,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $i=1; ?>
+                    <?php foreach($comics as $comic): ?>
                     <tr>
-                        <th scope="row">1</th>
-                        <td><img src="/img/naruto.jpg" alt="" class="cover"></td>
-                        <td>Naruto</td>
+                        <th scope="row"><?= $i++ ?></th>
+                        <td><img src="/img/<?= $comic['cover']; ?>" alt="" class="cover"></td>
+                        <td><?= $comic['title']; ?></td>
                         <td>
                             <a href="" class="btn btn-success">Detail</a>
                         </td>
                     </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>
         </div>
