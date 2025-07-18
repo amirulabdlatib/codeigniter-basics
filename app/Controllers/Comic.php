@@ -25,8 +25,7 @@ class Comic extends BaseController
         //     d($row);
         // }
 
-        // way 2
-        $comics = $this->comicModel->findAll();
+        $comics =  $this->comicModel->getComic();
         
         $data = [
             'title' => 'Register Comic',
@@ -35,5 +34,18 @@ class Comic extends BaseController
 
 
         return view('comics/index', $data);
-    }    
+    }
+    
+    public function detail($slug)
+    {
+        $comic = $this->comicModel->getComic($slug);
+        
+        $data = [
+            'title' => 'Comic Detail',
+            'comic' => $comic,
+        ];
+
+        return view('comics/detail',$data);
+
+    }
 }

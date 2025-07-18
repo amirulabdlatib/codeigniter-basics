@@ -8,3 +8,4 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Pages::index');
 
 $routes->get('/users', 'Admin\Users::index');
+$routes->get('/comic/(:segment)','Comic::detail/$1');
