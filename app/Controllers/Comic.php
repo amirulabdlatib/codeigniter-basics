@@ -49,7 +49,7 @@ class Comic extends BaseController
     {
 
         $validation = $this->validate([
-            'title' => 'required',
+            'title' => 'required|is_unique[comics.title]',
             'writer' => 'required',
             'editor' => 'required',
             'cover' => 'required'
