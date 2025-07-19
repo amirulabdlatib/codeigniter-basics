@@ -39,7 +39,8 @@ class Comic extends BaseController
     public function create()
     {
         $data = [
-            'title' => 'Create Comic'
+            'title' => 'Create Comic',
+            'validation' => session('validation')
         ];
 
         return view('comics/create', $data);
