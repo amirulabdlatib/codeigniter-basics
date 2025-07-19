@@ -155,6 +155,7 @@ class Comic extends BaseController
                 ->with('validation', $this->validator);
         }
 
+        // way 1
         $this->comicModel->update($id, [
             'title' => $this->request->getVar('title'),
             'slug' => url_title($this->request->getVar('title'), '-', true),
@@ -163,6 +164,16 @@ class Comic extends BaseController
             'cover' => $this->request->getVar('cover'),
 
         ]);
+
+        // way 2
+        // $this->comicModel->save([
+        //     'id' => $id, // This tells CI to perform an UPDATE instead of INSERT
+        //     'title' => $this->request->getVar('title'),
+        //     'slug' => url_title($this->request->getVar('title'), '-', true),
+        //     'writer' => $this->request->getVar('writer'),
+        //     'editor' => $this->request->getVar('editor'),
+        //     'cover' => $this->request->getVar('cover'),
+        // ]);
 
         session()->setFlashdata('message', 'Comic updated successfully.');
 
