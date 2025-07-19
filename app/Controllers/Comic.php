@@ -50,7 +50,13 @@ class Comic extends BaseController
     {
 
         $validation = $this->validate([
-            'title' => 'required|is_unique[comics.title]',
+            'title' => [
+                'rules' => 'required|is_unique[comics.title]',
+                'errors' => [
+                    'required' => '{field} field is required',
+                    'is_unique' => 'This comic {field} title already exists, please choose another one.'
+                ]
+            ],
             'writer' => 'required',
             'editor' => 'required',
             'cover' => 'required'
