@@ -10,4 +10,5 @@ $routes->get('/', 'Pages::index');
 $routes->get('/users', 'Admin\Users::index');
 $routes->get('/comic', 'Comic::index');
 $routes->get('/comic/index', 'Comic::index');
+$routes->get('/comic/create', 'Comic::create');
 $routes->get('/comic/detail/(:segment)', 'Comic::detail/$1');

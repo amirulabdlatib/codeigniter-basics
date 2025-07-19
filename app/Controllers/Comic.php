@@ -7,7 +7,7 @@ use App\Models\ComicModel;
 class Comic extends BaseController
 {
 
-    protected $comicModel; 
+    protected $comicModel;
 
     public function __construct()
     {
@@ -26,7 +26,7 @@ class Comic extends BaseController
         // }
 
         $comics =  $this->comicModel->getComic();
-        
+
         $data = [
             'title' => 'Register Comic',
             'comics' => $comics,
@@ -35,7 +35,16 @@ class Comic extends BaseController
 
         return view('comics/index', $data);
     }
-    
+
+    public function create()
+    {
+        $data = [
+            'title' => 'Create Comic'
+        ];
+
+        return view('comics/create', $data);
+    }
+
     public function detail($slug)
     {
         $comic = $this->comicModel->getComic($slug);
@@ -49,7 +58,6 @@ class Comic extends BaseController
             'comic' => $comic,
         ];
 
-        return view('comics/detail',$data);
-
+        return view('comics/detail', $data);
     }
 }
