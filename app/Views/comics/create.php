@@ -23,6 +23,9 @@
                             name="title"
                             value="<?= old('title'); ?>"
                             autofocus>
+                        <div class="invalid-feedback">
+                            <?= $validation?->getError('title'); ?>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group row mb-3">
@@ -35,6 +38,9 @@
                             placeholder="comic writer"
                             name="writer"
                             value="<?= old('writer'); ?>">
+                        <div class="invalid-feedback">
+                            <?= $validation?->getError('writer'); ?>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group row mb-3">
@@ -47,6 +53,9 @@
                             placeholder="comic editor"
                             name="editor"
                             value="<?= old('editor'); ?>">
+                        <div class="invalid-feedback">
+                            <?= $validation?->getError('editor'); ?>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group row mb-3">
@@ -57,6 +66,9 @@
                             id="cover"
                             placeholder="comic cover"
                             name="cover">
+                        <div class="invalid-feedback">
+                            <?= $validation?->getError('cover'); ?>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group row">
