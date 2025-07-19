@@ -25,7 +25,7 @@
                             <td><img src="/img/<?= $comic['cover']; ?>" alt="" class="cover"></td>
                             <td><?= $comic['title']; ?></td>
                             <td>
-                                <a href="<?= base_url('comic/' . $comic['slug']); ?>" class="btn btn-success">Detail</a>
+                                <a href="<?= base_url('comic/detail/' . $comic['slug']); ?>" class="btn btn-success">Detail</a>
                             </td>
                         </tr>
                     <?php endforeach ?>

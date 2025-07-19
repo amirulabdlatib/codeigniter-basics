@@ -45,6 +45,20 @@ class Comic extends BaseController
         return view('comics/create', $data);
     }
 
+    public function save()
+    {
+        $this->comicModel->save([
+            'title' => $this->request->getVar('title'),
+            'slug' => url_title($this->request->getVar('title'), '-', true),
+            'writer' => $this->request->getVar('writer'),
+            'editor' => $this->request->getVar('editor'),
+            'cover' => $this->request->getVar('cover'),
+
+        ]);
+
+        return redirect()->to(base_url('comic'));
+    }
+
     public function detail($slug)
     {
         $comic = $this->comicModel->getComic($slug);

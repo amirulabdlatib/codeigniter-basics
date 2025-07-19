@@ -7,14 +7,16 @@ use CodeIgniter\Model;
 class ComicModel extends Model
 {
     protected $table = 'comics';
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
+    protected $allowedFields = ['title', 'slug', 'writer', 'editor', 'cover'];
+
 
     public function getComic($slug = false)
     {
-        if(!$slug){
+        if (!$slug) {
             return $this->findAll();
         }
 
-        return $this->where(['slug'=>$slug])->first();
+        return $this->where(['slug' => $slug])->first();
     }
 }
