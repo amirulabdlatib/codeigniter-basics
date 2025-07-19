@@ -15,19 +15,38 @@
                 <div class="form-group row mb-3">
                     <label for="title" class="col-sm-2 col-form-label">Title</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="title" placeholder="comic title" name="title" autofocus>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="title"
+                            placeholder="comic title"
+                            name="title"
+                            value="<?= old('title'); ?>"
+                            autofocus>
                     </div>
                 </div>
                 <div class="form-group row mb-3">
                     <label for="writer" class="col-sm-2 col-form-label">Writer</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="writer" placeholder="comic writer" name="writer">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="writer"
+                            placeholder="comic writer"
+                            name="writer"
+                            value="<?= old('writer'); ?>">
                     </div>
                 </div>
                 <div class="form-group row mb-3">
                     <label for="editor" class="col-sm-2 col-form-label">Editor</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="editor" placeholder="comic editor" name="editor">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="editor"
+                            placeholder="comic editor"
+                            name="editor"
+                            value="<?= old('editor'); ?>">
                     </div>
                 </div>
                 <div class="form-group row mb-3">
