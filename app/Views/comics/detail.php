@@ -15,7 +15,7 @@
                             <p class="card-text">Writer: <?= $comic['writer']; ?></p>
                             <p class="card-text"><small class="text-muted">Editor <?= $comic['editor']; ?></small></p>
 
-                            <a href="" class="btn btn-warning">Edit</a>
+                            <a href="<?= base_url('/comic/edit/' . $comic['id']); ?>" class="btn btn-warning">Edit</a>
 
                             <form action="<?= base_url('/comic/delete/' . $comic['id']); ?>" method="post" class="d-inline">
                                 <?= csrf_field(); ?>

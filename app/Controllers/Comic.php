@@ -115,4 +115,14 @@ class Comic extends BaseController
 
         return redirect()->to(base_url('/comic'));
     }
+
+    public function edit($id)
+    {
+        $data = [
+            'title' => 'Edit Comic',
+            'validation' => session('validation')
+        ];
+
+        return view('comics/edit', $data);
+    }
 }
