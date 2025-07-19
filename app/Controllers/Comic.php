@@ -47,6 +47,29 @@ class Comic extends BaseController
 
     public function save()
     {
+
+        $validation = $this->validate([
+            'title' => 'required',
+            'writer' => 'required',
+            'editor' => 'required',
+            'cover' => 'required'
+        ]);
+
+        if (!$validation) {
+
+            // way 1
+            // $validation = \Config\Services::validation();
+
+            // return redirect()->to('/comic/create')
+            //     ->withInput()
+            //     ->with('validation', $validation);
+
+            // way 2
+            return redirect()->to('/comic/create')
+                ->withInput()
+                ->with('validation', $this->validator);
+        }
+
         $this->comicModel->save([
             'title' => $this->request->getVar('title'),
             'slug' => url_title($this->request->getVar('title'), '-', true),

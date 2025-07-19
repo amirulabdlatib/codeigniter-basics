@@ -3,6 +3,11 @@
 <?= $this->section('content') ?>
 <div class="container">
     <h1 class="fs-4">Create comic page</h1>
+
+    <?php if (session('validation')): ?>
+        <?= session('validation')->listErrors() ?>
+    <?php endif; ?>
+
     <div class="col">
         <div class="row">
             <form action=<?= base_url('comic/save'); ?> method="POST">
