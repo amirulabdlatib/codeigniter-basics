@@ -56,6 +56,8 @@ class Comic extends BaseController
 
         ]);
 
+        session()->setFlashdata('message', 'Comic created successfully.');
+
         return redirect()->to(base_url('comic'));
     }
 

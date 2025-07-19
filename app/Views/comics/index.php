@@ -8,6 +8,14 @@
                 <h1 class="mb-4">Register Comic</h1>
                 <a href="<?= base_url('comic/create'); ?>" class="btn btn-primary mb-3">Add Comic</a>
             </div>
+
+            <?php if (session()->getFlashdata('message')) : ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?= session()->getFlashdata('message'); ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
+
             <table class="table">
                 <thead>
                     <tr>
