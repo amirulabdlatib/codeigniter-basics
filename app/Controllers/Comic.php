@@ -120,9 +120,52 @@ class Comic extends BaseController
     {
         $data = [
             'title' => 'Edit Comic',
-            'validation' => session('validation')
+            'validation' => session('validation'),
+            'comic' => $this->comicModel->find($id)
         ];
 
         return view('comics/edit', $data);
+    }
+
+    public function update($id)
+    {
+
+        $comic = $this->comicModel->find($id);
+
+        $titleRule = ($comic['title'] === $this->request->getVar('title'))
+            ? 'required'
+            : 'required|is_unique[comics.title]';
+
+        $validation = $this->validate([
+            'title' => [
+                'rules' =>  $titleRule,
+                'errors' => [
+                    'required' => '{field} field is required',
+                    'is_unique' => 'This comic {field} title already exists, please choose another one.'
+                ]
+            ],
+            'writer' => 'required',
+            'editor' => 'required',
+            'cover' => 'required'
+        ]);
+
+        if (!$validation) {
+            return redirect()->to('/comic/edit/' . $id)
+                ->withInput()
+                ->with('validation', $this->validator);
+        }
+
+        $this->comicModel->update($id, [
+            'title' => $this->request->getVar('title'),
+            'slug' => url_title($this->request->getVar('title'), '-', true),
+            'writer' => $this->request->getVar('writer'),
+            'editor' => $this->request->getVar('editor'),
+            'cover' => $this->request->getVar('cover'),
+
+        ]);
+
+        session()->setFlashdata('message', 'Comic updated successfully.');
+
+        return redirect()->to(base_url('comic'));
     }
 }
