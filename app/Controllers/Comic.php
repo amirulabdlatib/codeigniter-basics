@@ -106,4 +106,13 @@ class Comic extends BaseController
 
         return view('comics/detail', $data);
     }
+
+    public function delete($id)
+    {
+        $this->comicModel->delete($id);
+
+        session()->setFlashdata('message', 'Comic deleted successfully.');
+
+        return redirect()->to(base_url('/comic'));
+    }
 }

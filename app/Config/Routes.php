@@ -11,4 +11,5 @@ $routes->get('/users', 'Admin\Users::index');
 $routes->get('/comic', 'Comic::index');
 $routes->get('/comic/index', 'Comic::index');
 $routes->get('/comic/create', 'Comic::create');
-$routes->get('/comic/detail/(:segment)', 'Comic::detail/$1');
+$routes->delete('/comic/delete/(:num)', 'Comic::delete/$1');
+$routes->get('/comic/detail/(:any)', 'Comic::detail/$1');

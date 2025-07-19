@@ -16,7 +16,19 @@
                             <p class="card-text"><small class="text-muted">Editor <?= $comic['editor']; ?></small></p>
 
                             <a href="" class="btn btn-warning">Edit</a>
-                            <a href="" class="btn btn-danger">Delete</a>
+
+                            <form action="<?= base_url('/comic/delete/' . $comic['id']); ?>" method="post" class="d-inline">
+                                <?= csrf_field(); ?>
+                                <input type="hidden" name="_method" value="DELETE">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-danger"
+                                    onclick="return confirm('Are you sure to delete?')">
+                                    Delete
+                                </button>
+                            </form>
+
                             <br>
 
                             <a href="<?= base_url('/comic'); ?>">Back to comic list page</a>
