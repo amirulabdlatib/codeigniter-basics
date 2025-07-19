@@ -17,7 +17,7 @@
                     <div class="col-sm-10">
                         <input
                             type="text"
-                            class="form-control"
+                            class="form-control <?= $validation?->hasError('title') ? 'is-invalid' : '' ?>"
                             id="title"
                             placeholder="comic title"
                             name="title"
@@ -30,7 +30,7 @@
                     <div class="col-sm-10">
                         <input
                             type="text"
-                            class="form-control"
+                            class="form-control <?= $validation?->hasError('writer') ? 'is-invalid' : '' ?>"
                             id="writer"
                             placeholder="comic writer"
                             name="writer"
@@ -42,7 +42,7 @@
                     <div class="col-sm-10">
                         <input
                             type="text"
-                            class="form-control"
+                            class="form-control <?= $validation?->hasError('editor') ? 'is-invalid' : '' ?>"
                             id="editor"
                             placeholder="comic editor"
                             name="editor"
@@ -52,7 +52,11 @@
                 <div class="form-group row mb-3">
                     <label for="cover" class="col-sm-2 col-form-label">Image Cover</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="cover" placeholder="comic cover" name="cover">
+                        <input type="text"
+                            class="form-control <?= $validation?->hasError('cover') ? 'is-invalid' : '' ?>"
+                            id="cover"
+                            placeholder="comic cover"
+                            name="cover">
                     </div>
                 </div>
                 <div class="form-group row">
