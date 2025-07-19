@@ -13,7 +13,6 @@
             <form action=<?= base_url('comic/update/' . $comic['id']); ?> method="POST">
                 <?= csrf_field(); ?>
                 <input type="hidden" name="_method" value="PUT">
-                <input type="hidden" name="id" value="<?= $comic['id']; ?>">
                 <div class="form-group row mb-3">
                     <label for="title" class="col-sm-2 col-form-label">Title</label>
                     <div class="col-sm-10">
