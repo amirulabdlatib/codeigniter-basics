@@ -39,7 +39,11 @@ class Comic extends BaseController
     public function detail($slug)
     {
         $comic = $this->comicModel->getComic($slug);
-        
+
+        if (empty($comic)) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException("Comic with slug '$slug' not found.");
+        }
+
         $data = [
             'title' => 'Comic Detail',
             'comic' => $comic,
