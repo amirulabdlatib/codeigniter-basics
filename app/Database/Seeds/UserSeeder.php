@@ -9,18 +9,14 @@ class UserSeeder extends Seeder
 {
     public function run()
     {
+        $fake = \Faker\Factory::create();
+
         $data = [
-            'name' => 'Ahmad',
-            'address'    => '108 Jalan ABC',
-            'created_at' => Time::now(),
+            'name' => $fake->name(),
+            'address'    => $fake->address,
+            'created_at' => Time::createFromTimestamp($fake->unixTime()),
             'updated_at' => Time::now(),
         ];
-
-        // Simple Queries
-        // $this->db->query(
-        // 'INSERT INTO users (name, address,created_at,updated_at) 
-        //  VALUES(:name:, :address:,:created_at:,:updated_at:)'
-        // ,$data);
 
         // Using Query Builder
         $this->db->table('users')->insert($data);
