@@ -9,16 +9,18 @@ class UserSeeder extends Seeder
 {
     public function run()
     {
-        $fake = \Faker\Factory::create();
+        $fake = \Faker\Factory::create('ms_MY');
 
-        $data = [
-            'name' => $fake->name(),
-            'address'    => $fake->address,
-            'created_at' => Time::createFromTimestamp($fake->unixTime()),
-            'updated_at' => Time::now(),
-        ];
+        for ($i = 0; $i < 100; $i++) {
+            $data = [
+                'name' => $fake->name(),
+                'address'    => $fake->address,
+                'created_at' => Time::createFromTimestamp($fake->unixTime()),
+                'updated_at' => Time::now(),
+            ];
 
-        // Using Query Builder
-        $this->db->table('users')->insert($data);
+            // Using Query Builder
+            $this->db->table('users')->insert($data);
+        }
     }
 }
